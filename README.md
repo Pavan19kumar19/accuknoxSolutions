@@ -1,4 +1,4 @@
-# accuknoxSolutions
+# AccuknoxSolutions
 # Django Solution Project
 
 ## Overview
@@ -20,6 +20,12 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from .models import Rectangular
 
-@receiver(post_save, sender=Rectangular)
-def my_handler(sender, instance, **kwargs):
-    print(f"Signal received for instance with ID: {instance.id}")
+@receiver(post_save,sender = Rectangular)
+def rectangular_saved_handler(sender,instance,**kwargs):
+    print(f"Signal received for Rectangular with length={instance.length} and width={instance.width}")
+    print(f"Signal handler thread: {threading.current_thread().name}")
+    time.sleep(5)  # Simulate synchronous behavior
+    print("Delay 5 seconds")
+    print("Signal handler completed")```
+
+### 2. Do django signals run in the same thread as the caller?
