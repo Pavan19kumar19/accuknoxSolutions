@@ -1,11 +1,7 @@
 # AccuknoxSolutions
 # Django Solution Project
 
-## Overview
-
-This project demonstrates the use of Django signals, custom Django models, and Python class iteration. The project contains a Django app named `solution` with a model called `Rectangular`. It also includes explanations and code examples related to Django signals.
-
-## Django Signals
+## Topic : Django Signals
 
 ### 1. Are Django signals executed synchronously or asynchronously by default?
 
@@ -73,6 +69,50 @@ def rectangular_saved_handler(sender,instance,**kwargs):
 ```
 **Output:**
 ![3](https://github.com/user-attachments/assets/029e9580-fdbf-43cc-8de5-cefd67587d85)
+
+## Topic : Custom Classes in Python
+### 1 Initialize the class with length and width attributes
+```python
+class Rectangle:
+    def __init__(self, length: int, width: int):
+        self.length = length
+        self.width = width
+```
+### 2 Implement an iterator so that instances of the Rectangle class can be iterated over.
+```python
+class Rectangle:
+    def __init__(self, length: int, width: int):
+        self.length = length
+        self.width = width
+
+    # Define an iterator method to make the instance iterable
+    def __iter__(self):
+        # Yield length first
+        yield {'length': self.length}
+        # Yield width second
+        yield {'width': self.width}
+```
+### 3 Define the iteration behavior to return a dictionary with the length first and then the width.
+```python
+class Rectangle:
+    def __init__(self, length: int, width: int):
+        self.length = length
+        self.width = width
+
+    def __iter__(self):
+        # Yield length first
+        yield {'length': self.length}
+        # Yield width second
+        yield {'width': self.width}
+
+# Example usage
+rect = Rectangle(10, 5)
+
+# Iterating over the Rectangle instance
+for dim in rect:
+    print(dim)
+```
+![Screenshot 2024-09-13 163527](https://github.com/user-attachments/assets/1bebf550-cc9a-498a-982c-ce47bc63102b)
 
 
 # Key Highlights of My Approach
