@@ -26,6 +26,8 @@ def rectangular_saved_handler(sender,instance,**kwargs):
     print(f"Signal handler thread: {threading.current_thread().name}")
     time.sleep(5)  # Simulate synchronous behavior
     print("Delay 5 seconds")
-    print("Signal handler completed")```
+    print("Signal handler completed")
+```
+
 
 ### 2. Do django signals run in the same thread as the caller?
